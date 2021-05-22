@@ -39,10 +39,14 @@ jobs:
 
     - run: git status -s
     
-    - run: aaa=[[ `git status -s` =~ .*api-docs.* ]]
-    
+    - name: Step1 Set FOO
+      run: |
+        hoge=[[ `git status -s` =~ .*api-docs.* ]]
+        echo "::set-output name=FOO::${hoge}"
+      id: step-foo
+      
     - name: check api-docs.json update
-      if: ${{ aaa }}
+      if: ${{ steps.step-foo.outputs.FOO }}
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
