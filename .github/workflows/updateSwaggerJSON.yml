@@ -42,8 +42,8 @@ jobs:
     - name: Step1 Set FOO
       run: |
         [[ `git status -s` =~ .*api-docs.* ]]
-        hoge=`echo $?`
-        echo "::set-output name=FOO::${hoge}"
+        upresult=`echo $?`
+        echo "::set-output name=FOO::${upresult}"
       id: step-foo
       
     - name: check api-docs.json update
