@@ -37,10 +37,10 @@ jobs:
         rm ./api-docs.json 
         wget http://127.0.0.1:3000/api-docs.json
 
-    - run: grep -q 'api-docs.json' `git status -s`
+    - run: git status -s
     
     - name: check api-docs.json update
-      if: ${{ false }} 
+      if: ${{ [[ `git status -s` =~ .*api-docs.* ]] }} 
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
