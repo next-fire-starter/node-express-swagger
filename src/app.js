@@ -13,7 +13,7 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'node-express-swagger',
+      title: 'node-express-swagger Project',
       version: '1.0.0',
     },
   },
