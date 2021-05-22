@@ -37,8 +37,7 @@ jobs:
         rm ./api-docs.json 
         wget http://127.0.0.1:3000/api-docs.json
 
-    - run: git_status=&(git status)
-    - run: echo ${git_status}
+    - run: git status -s
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
