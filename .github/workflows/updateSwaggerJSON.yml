@@ -38,16 +38,17 @@ jobs:
     
     - run: wget http://127.0.0.1:3000/api-docs.json
 
-    - run: ls -ka
+    - run: ls -la
 
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add ./docs/api-docs.json
+        git add ./api-docs.json
         git commit -m "update api-docs.json" -a
         
     - name: Push changes
-      uses: ad-m/github-push-action@master
+      uses: ad-m/github-push-action@main
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main
