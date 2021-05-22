@@ -41,20 +41,21 @@ jobs:
     
     - name: Step1 Set FOO
       run: |
-        if [[ `git status -s` =~ .*api-docs.* ]]; then upresult=true; else upresult=false; fi
+        if [[ `git status -s` =~ .*api-docs.* ]]; then upresult='0'; else upresult='1'; fi
         echo "::set-output name=FOO::${upresult}"
       id: step-foo
       
     - name: check api-docs.json update ${{ steps.step-foo.outputs.FOO }}
-      if: ${{ steps.step-foo.outputs.FOO == true }}
+      if: ${{ steps.step-foo.outputs.FOO == '0' }}
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add .
         git commit -m "update api-docs.json" -a
 
-        name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+    - name: Push changes
+      if: ${{ steps.step-foo.outputs.FOO == '0' }}
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main
