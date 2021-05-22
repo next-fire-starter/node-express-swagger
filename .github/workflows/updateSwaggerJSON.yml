@@ -41,7 +41,7 @@ jobs:
     
     - name: Step1 Set FOO
       run: |
-        if [[ `git status -s` =~ .*api-docs.* ]]; then upresult=0; else upresult=1; fi
+        if [[ `git status -s` =~ .*api-docs.* ]]; then upresult=true; else upresult=false; fi
         echo "::set-output name=FOO::${upresult}"
       id: step-foo
       
