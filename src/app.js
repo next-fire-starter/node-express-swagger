@@ -10,7 +10,7 @@ app.use(function(req, res, next) {
 });
 
 const options = {
-  definition: {
+  definition: { 
     openapi: '3.0.0',
     info: {
       title: 'node-express-swagger',
