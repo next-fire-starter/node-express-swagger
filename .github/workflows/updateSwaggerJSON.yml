@@ -41,8 +41,10 @@ jobs:
     
     - name: Step1 Set FOO
       run: |
+        set +e
         [[ `git status -s` =~ .*api-docs.* ]]
         upresult=`echo $?`
+        set -e
         echo "::set-output name=FOO::${upresult}"
       id: step-foo
       
