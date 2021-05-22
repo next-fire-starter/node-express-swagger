@@ -45,7 +45,7 @@ jobs:
         echo "::set-output name=FOO::${upresult}"
       id: step-foo
       
-    - name: check api-docs.json update
+    - name: check api-docs.json update ${{ steps.step-foo.outputs.FOO }}
       if: ${{ steps.step-foo.outputs.FOO }}
       run: |
         git config --local user.email "action@github.com"
