@@ -41,7 +41,8 @@ jobs:
     
     - name: Step1 Set FOO
       run: |
-        hoge=[[ `git status -s` =~ .*api-docs.* ]]; echo $?
+        [[ `git status -s` =~ .*api-docs.* ]]
+        hoge=`echo $?`
         echo "::set-output name=FOO::${hoge}"
       id: step-foo
       
