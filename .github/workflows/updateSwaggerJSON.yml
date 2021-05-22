@@ -6,6 +6,8 @@ name: updateSwaggerJSON
 on:
   push:
     branches: [ main ]
+    paths:
+      - '**.js'
 
 jobs:
   updateSwaggerJSON:
