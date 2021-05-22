@@ -34,11 +34,9 @@ jobs:
     
     - run: nohup npm run start &
     
-    - run: cd ./docs
-    
-    - run: rm ./api-docs.json
-    
-    - run: wget http://127.0.0.1:3000/api-docs.json
+    - run: cd ./docs \
+        && rm ./api-docs.json \
+        && wget http://127.0.0.1:3000/api-docs.json
 
     - run: ls -la
 
