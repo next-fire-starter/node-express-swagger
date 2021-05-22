@@ -31,7 +31,7 @@ app.get('/api-docs.json', function(req, res){
  * @swagger
  * /:
  *   get:
- *     description: Welcome to swagger-jsdoc!
+ *     description: Welcome to node-express-swagger
  *     responses:
  *       200:
  *         description: Returns a mysterious string.
