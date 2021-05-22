@@ -3,8 +3,8 @@ name: updateSwaggerJSON
 on:
   push:
     branches: [ main ]
-    paths:
-      - '**.js'
+ #   paths:
+ #     - '**.js'
 
 jobs:
   updateSwaggerJSON:
@@ -36,6 +36,8 @@ jobs:
         cd ./docs 
         rm ./api-docs.json 
         wget http://127.0.0.1:3000/api-docs.json
+
+    - run: git status
 
     - name: Commit files
       run: |
