@@ -40,7 +40,7 @@ jobs:
     - run: git status -s
     
     - name: check api-docs.json update
-      if: ${{ [[ `git status -s` =~ .*api-docs.* ]] }} 
+      if: [[ `git status -s` =~ .*api-docs.* ]]
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
