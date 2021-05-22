@@ -38,7 +38,8 @@ jobs:
         wget http://127.0.0.1:3000/api-docs.json
 
     - run: git status -s
-    - name: Commit files
+    - name: check api-docs.json update
+      if: ${{ true }} 
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
