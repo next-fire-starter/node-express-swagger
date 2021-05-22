@@ -46,7 +46,7 @@ jobs:
       id: step-foo
       
     - name: check api-docs.json update ${{ steps.step-foo.outputs.FOO }}
-      if: ${{ steps.step-foo.outputs.FOO }}
+      if: ${{ steps.step-foo.outputs.FOO == true }}
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
